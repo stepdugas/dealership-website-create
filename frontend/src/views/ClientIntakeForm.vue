@@ -688,36 +688,47 @@ async function submitForm() {
       form.pages.scheduleService && 'Schedule Service',
     ].filter(Boolean)
 
-    await axios.post(`${API_BASE_URL}/api/client-intake`, {
-      businessName:      form.businessName,
-      tagline:           form.tagline,
-      phone:             form.phone,
-      email:             form.email,
-      address:           form.address,
-      city:              form.city,
-      state:             form.state,
-      zip:               form.zip,
-      hours:             hoursFlat,
-      primaryColor:      form.primaryColor,
-      facebook:          form.facebook,
-      instagram:         form.instagram,
-      aboutBlurb:        form.aboutBlurb,
-      aboutMission:      form.aboutMission,
-      aboutYearFounded:  form.aboutYearFounded,
-      aboutStatYears:    form.aboutStatYears,
-      aboutStatVehicles: form.aboutStatVehicles,
-      aboutStatReviews:  form.aboutStatReviews,
-      aboutStatTeam:     form.aboutStatTeam,
-      domain:            form.domain,
-      pages,
-      notes: [
+    const notes = [
         form.notes,
         form.financingBlurb      ? `Financing blurb: ${form.financingBlurb}`          : '',
         form.financingApplyUrl   ? `Financing URL: ${form.financingApplyUrl}`          : '',
         form.scheduleBlurb       ? `Schedule blurb: ${form.scheduleBlurb}`             : '',
         form.scheduleCalendarUrl ? `Calendar URL: ${form.scheduleCalendarUrl}`         : '',
         form.logoUrl             ? `Logo URL: ${form.logoUrl}`                         : '',
-      ].filter(Boolean).join('\n'),
+      ].filter(Boolean).join('\n')
+
+    const encode = (data) => Object.entries(data)
+      .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v ?? '')}`)
+      .join('&')
+
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name':       'client-intake',
+        businessName:      form.businessName,
+        tagline:           form.tagline,
+        phone:             form.phone,
+        email:             form.email,
+        address:           form.address,
+        city:              form.city,
+        state:             form.state,
+        zip:               form.zip,
+        hours:             JSON.stringify(hoursFlat),
+        primaryColor:      form.primaryColor,
+        facebook:          form.facebook,
+        instagram:         form.instagram,
+        aboutBlurb:        form.aboutBlurb,
+        aboutMission:      form.aboutMission,
+        aboutYearFounded:  form.aboutYearFounded,
+        aboutStatYears:    form.aboutStatYears,
+        aboutStatVehicles: form.aboutStatVehicles,
+        aboutStatReviews:  form.aboutStatReviews,
+        aboutStatTeam:     form.aboutStatTeam,
+        domain:            form.domain,
+        pages:             pages.join(', '),
+        notes,
+      }),
     })
     submitted.value = true
   } catch {

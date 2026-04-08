@@ -14,5 +14,31 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+
+    <!-- Hidden form so Netlify detects it at build time -->
+    <form name="client-intake" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="businessName" />
+      <input type="text" name="tagline" />
+      <input type="text" name="phone" />
+      <input type="text" name="email" />
+      <input type="text" name="address" />
+      <input type="text" name="city" />
+      <input type="text" name="state" />
+      <input type="text" name="zip" />
+      <input type="text" name="hours" />
+      <input type="text" name="primaryColor" />
+      <input type="text" name="facebook" />
+      <input type="text" name="instagram" />
+      <input type="text" name="aboutBlurb" />
+      <input type="text" name="aboutMission" />
+      <input type="text" name="aboutYearFounded" />
+      <input type="text" name="aboutStatYears" />
+      <input type="text" name="aboutStatVehicles" />
+      <input type="text" name="aboutStatReviews" />
+      <input type="text" name="aboutStatTeam" />
+      <input type="text" name="domain" />
+      <input type="text" name="pages" />
+      <input type="text" name="notes" />
+    </form>
   </body>
 </html>
