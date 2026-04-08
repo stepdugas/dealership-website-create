@@ -7,21 +7,21 @@
  * ============================================================
  */
 
-export const DEALERSHIP_NAME   = 'Monaca Auto Sales'
-export const TAGLINE           = 'Quality Cars'
-export const PHONE             = '(724) 774-3002'
-export const EMAIL             = 'monaca@mail.com'
-export const ADDRESS           = '303 9th Street'
-export const CITY_STATE_ZIP    = 'Monaca, PA 15061'
+export const DEALERSHIP_NAME   = 'Your Dealership Name'
+export const TAGLINE           = 'Your Tagline Here'
+export const PHONE             = '(555) 555-5555'
+export const EMAIL             = 'contact@yourdealership.com'
+export const ADDRESS           = '123 Main Street'
+export const CITY_STATE_ZIP    = 'City, State ZIP'
 export const LOGO_URL          = ''
 
 // Business hours — displayed in header, footer, contact page
 export const HOURS = {
-  monday:    '10:00 AM – 7:00 PM',
-  tuesday:   '10:00 AM – 7:00 PM',
-  wednesday: '10:00 AM – 7:00 PM',
-  thursday:  '10:00 AM – 8:00 PM',
-  friday:    '10:00 AM – 4:00 PM',
+  monday:    '9:00 AM – 6:00 PM',
+  tuesday:   '9:00 AM – 6:00 PM',
+  wednesday: '9:00 AM – 6:00 PM',
+  thursday:  '9:00 AM – 6:00 PM',
+  friday:    '9:00 AM – 6:00 PM',
   saturday:  '10:00 AM – 4:00 PM',
   sunday:    'Closed',
 }

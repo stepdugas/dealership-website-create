@@ -32,7 +32,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="md:col-span-2">
             <label class="block text-sm font-medium text-gray-700 mb-1">Business Name</label>
-            <input v-model="form.business_name" type="text" class="field" placeholder="e.g. Dugas Auto Sales" />
+            <input v-model="form.business_name" type="text" class="field" placeholder="Your dealership name" />
           </div>
           <div class="md:col-span-2">
             <label class="block text-sm font-medium text-gray-700 mb-1">Tagline</label>
