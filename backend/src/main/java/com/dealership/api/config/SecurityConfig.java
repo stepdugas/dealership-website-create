@@ -53,12 +53,12 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET,  "/api/feeds/**").permitAll()
                 // Public contact form submission
                 .requestMatchers(HttpMethod.POST, "/api/contact").permitAll()
-                // Public client intake form
-                .requestMatchers(HttpMethod.POST, "/api/client-intake").permitAll()
                 // Public site settings (hours, name, etc.)
                 .requestMatchers(HttpMethod.GET,  "/api/public/settings").permitAll()
                 // Public staff directory
                 .requestMatchers(HttpMethod.GET,  "/api/public/staff").permitAll()
+                // Public reviews
+                .requestMatchers(HttpMethod.GET,  "/api/public/reviews").permitAll()
                 // Public financing application form
                 .requestMatchers(HttpMethod.POST, "/api/financing-application").permitAll()
                 // Public service appointment request
@@ -82,7 +82,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList(allowedOrigins.split(",")));
+        config.setAllowedOriginPatterns(Arrays.asList(allowedOrigins.split(",")));
         config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS","PATCH"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
