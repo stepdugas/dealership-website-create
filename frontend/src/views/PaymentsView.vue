@@ -104,7 +104,7 @@ const faq = [
   },
   {
     question: 'How long does it take to go live?',
-    answer: 'Most sites are live within a few days of your setup payment and onboarding call. We move fast.',
+    answer: 'Most sites are live within a week of receiving your setup payment and completed client intake form. We commit to getting you live within 14 days.',
   },
   {
     question: 'Do you offer custom pricing?',
