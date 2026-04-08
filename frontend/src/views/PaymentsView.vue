@@ -74,7 +74,7 @@
 import PageLayout from '../components/layout/PageLayout.vue'
 
 // Swap this for the live Stripe link when you go live
-const STRIPE_LINK = 'https://buy.stripe.com/test_4gMcN5brOf4KdVU7jD9IQ00'
+const STRIPE_LINK = 'https://buy.stripe.com/dRmfZh20994X9SxeLBfw400'
 
 const includes = [
   'Custom dealership website built and launched',
