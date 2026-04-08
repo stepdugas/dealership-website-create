@@ -154,13 +154,7 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title
   }
 
-  // Admin auth check
-  if (to.meta.requiresAdmin) {
-    const isLoggedIn = localStorage.getItem('admin_token')
-    if (!isLoggedIn) {
-      return next({ name: 'AdminLogin', query: { redirect: to.fullPath } })
-    }
-  }
+  // Demo site — admin is open for prospective clients to explore
 
   next()
 })
