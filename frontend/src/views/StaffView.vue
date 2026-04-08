@@ -127,12 +127,51 @@ import { DEALERSHIP_NAME, API_BASE_URL } from '../config'
 const staff   = ref([])
 const loading = ref(true)
 
+const demoStaff = [
+  {
+    id: 1,
+    name: 'Alex Rivera',
+    title: 'General Manager',
+    bio: 'With over 15 years in the automotive industry, Alex leads the team with a focus on honest deals and customer satisfaction.',
+    phone: null,
+    email: null,
+    photoUrl: null,
+  },
+  {
+    id: 2,
+    name: 'Jamie Chen',
+    title: 'Sales Consultant',
+    bio: 'Jamie specializes in matching customers with the right vehicle for their lifestyle and budget. Ask her anything — she loves helping first-time buyers.',
+    phone: null,
+    email: null,
+    photoUrl: null,
+  },
+  {
+    id: 3,
+    name: 'Marcus Johnson',
+    title: 'Finance Specialist',
+    bio: 'Marcus works with our lending partners to find the best rates for every credit situation. No judgment — just results.',
+    phone: null,
+    email: null,
+    photoUrl: null,
+  },
+  {
+    id: 4,
+    name: 'Taylor Brooks',
+    title: 'Service Advisor',
+    bio: 'Taylor keeps your vehicle running its best. She coordinates all service appointments and makes sure you always know what\'s happening with your car.',
+    phone: null,
+    email: null,
+    photoUrl: null,
+  },
+]
+
 async function fetchStaff() {
   try {
     const res = await axios.get(`${API_BASE_URL}/api/public/staff`)
-    staff.value = res.data
-  } catch (err) {
-    console.error('Failed to load staff:', err)
+    staff.value = res.data.length ? res.data : demoStaff
+  } catch {
+    staff.value = demoStaff
   } finally {
     loading.value = false
   }

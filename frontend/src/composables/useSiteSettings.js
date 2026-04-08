@@ -106,10 +106,10 @@ export const siteSettings = reactive({
   scheduleShowVehicleInfo:   true,
   scheduleShowPreferredTime: true,
   scheduleShowReferral:      false,
-  // Page toggles — false by default, admin enables per client
-  showStaff:           false,
-  showFinancing:       false,
-  showScheduleService: false,
+  // Page toggles — enabled by default on demo site to showcase all features
+  showStaff:           true,
+  showFinancing:       true,
+  showScheduleService: true,
 })
 
 // Fetch settings from backend and populate the reactive object
