@@ -46,6 +46,12 @@ const routes = [
       if (import.meta.env.VITE_HIDE_INTAKE_FORM === 'true') return '/'
     },
   },
+  {
+    path: '/payments',
+    name: 'Payments',
+    component: () => import('../views/PaymentsView.vue'),
+    meta: { title: 'Payments' },
+  },
 
   // ── Optional pages (shown only when toggled on in admin settings) ────
   {

@@ -113,8 +113,9 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
         <p>&copy; {{ new Date().getFullYear() }} {{ siteSettings.businessName }}. All rights reserved.</p>
         <div class="flex gap-5">
-          <RouterLink to="/admin/login" class="hover:text-white transition-colors">Admin</RouterLink>
-          <!-- Add Privacy Policy / Terms links as needed -->
+          <RouterLink to="/intake"    class="hover:text-white transition-colors">Client Intake</RouterLink>
+          <RouterLink to="/payments"  class="hover:text-white transition-colors">Payments</RouterLink>
+          <RouterLink to="/admin"     class="hover:text-white transition-colors">Admin Demo</RouterLink>
         </div>
       </div>
     </div>
