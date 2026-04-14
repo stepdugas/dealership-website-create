@@ -55,6 +55,12 @@ const routes = [
     meta: { title: 'Contact Us' },
   },
   {
+    path: '/get-started',
+    name: 'GetStarted',
+    component: () => import('../views/StartConversationView.vue'),
+    meta: { title: 'Start the Conversation' },
+  },
+  {
     path: '/intake',
     name: 'ClientIntake',
     component: () => import('../views/ClientIntakeForm.vue'),

@@ -77,7 +77,7 @@
             I build fast, professional websites for independent dealers — so you can focus on selling cars.
           </p>
         </div>
-        <RouterLink to="/#contact-form" class="flex-shrink-0 btn-primary text-sm py-2.5 px-5 whitespace-nowrap">
+        <RouterLink to="/get-started" class="flex-shrink-0 btn-primary text-sm py-2.5 px-5 whitespace-nowrap">
           Let's Talk
         </RouterLink>
       </div>
@@ -151,7 +151,7 @@
           no more hand-written lists. I'll handle everything from setup to launch.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-          <RouterLink to="/#contact-form" class="btn-primary text-sm px-6 py-3">Get Your Site Built</RouterLink>
+          <RouterLink to="/get-started" class="btn-primary text-sm px-6 py-3">Get Your Site Built</RouterLink>
           <RouterLink to="/demo"          class="btn-outline text-sm px-6 py-3">View Demo Site</RouterLink>
         </div>
       </div>
