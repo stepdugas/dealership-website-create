@@ -40,8 +40,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
             d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0zM1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/>
         </svg>
-        <p class="text-lg font-medium text-gray-400">Inventory coming soon</p>
-        <p class="mt-2 text-sm">Check back soon — vehicles will be listed here.</p>
+        <p class="text-lg font-medium text-gray-400">Your inventory listed here</p>
       </div>
 
       <!-- Car grid -->
