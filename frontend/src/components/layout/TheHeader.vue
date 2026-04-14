@@ -96,7 +96,7 @@ const mobileOpen = ref(false)
 
 const navLinks = computed(() => {
   const links = [
-    { label: 'Home',      to: '/' },
+    { label: 'Demo Home', to: '/demo' },
     { label: 'Inventory', to: '/inventory' },
     { label: 'About Us',  to: '/about' },
   ]
