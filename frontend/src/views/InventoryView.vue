@@ -34,22 +34,14 @@
         </div>
       </div>
 
-      <!-- Empty state (only when filters are active and nothing matches) -->
+      <!-- Empty state -->
       <div v-else-if="!loading && cars.length === 0" class="text-center py-24 text-gray-500">
-        <p class="text-lg font-medium">No vehicles matched your filters.</p>
-        <p class="mt-2 text-sm">Try adjusting or clearing the filters above.</p>
-      </div>
-
-      <!-- Demo notice banner -->
-      <div v-if="isDemo && !loading" class="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800">
-        <svg class="w-5 h-5 shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 110 20A10 10 0 0112 2z"/>
+        <svg class="w-16 h-16 mx-auto mb-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0zM1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/>
         </svg>
-        <span>
-          <strong>These are sample listings</strong> — shown so the site always looks its best.
-          Real inventory will appear here once vehicles are added.
-        </span>
+        <p class="text-lg font-medium text-gray-400">Inventory coming soon</p>
+        <p class="mt-2 text-sm">Check back soon — vehicles will be listed here.</p>
       </div>
 
       <!-- Car grid -->
@@ -115,7 +107,6 @@ import EditCarModal from '../components/EditCarModal.vue'
 import { getInventory } from '../api'
 import { siteSettings } from '../composables/useSiteSettings'
 import { usePageMeta }  from '../composables/usePageMeta'
-import { demoInventory } from '../data/demoInventory'
 
 usePageMeta(() => ({
   title:       'Browse Inventory',
@@ -126,7 +117,6 @@ usePageMeta(() => ({
 const cars       = ref([])
 const loading    = ref(true)
 const error      = ref(false)
-const isDemo     = ref(false)
 const total      = ref(null)
 const page       = ref(0)
 const totalPages = ref(1)
@@ -139,17 +129,9 @@ const selectedCar = ref(null)
 
 const hasActiveFilters = computed(() => Object.keys(filters.value).length > 0)
 
-function useDemoFallback() {
-  cars.value       = demoInventory
-  total.value      = demoInventory.length
-  totalPages.value = 1
-  isDemo.value     = true
-}
-
 async function fetchInventory() {
   loading.value = true
   error.value   = false
-  isDemo.value  = false
   try {
     const res = await getInventory({ ...filters.value, page: page.value, size: PAGE_SIZE })
     const data = res.data
@@ -164,14 +146,9 @@ async function fetchInventory() {
       total.value      = data.length
       totalPages.value = 1
     }
-
-    // If the backend returned nothing and no filters are active, show demo cars
-    if (cars.value.length === 0 && !hasActiveFilters.value) {
-      useDemoFallback()
-    }
   } catch {
-    // Backend unavailable — show demo cars instead of an error screen
-    useDemoFallback()
+    cars.value  = []
+    total.value = 0
   } finally {
     loading.value = false
   }
