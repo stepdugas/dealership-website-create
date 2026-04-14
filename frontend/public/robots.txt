@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block admin panel from search engines
+Disallow: /admin/
+Disallow: /admin
+
+# Sitemap location — update [SITE_URL] with your production domain (no trailing slash)
+# Set VITE_SITE_URL in your Netlify environment variables
+Sitemap: [SITE_URL]/sitemap.xml

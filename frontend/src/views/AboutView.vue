@@ -102,6 +102,13 @@ import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import PageLayout from '../components/layout/PageLayout.vue'
 import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
+
+usePageMeta(() => ({
+  title:       'About Us',
+  description: `Learn about ${siteSettings.businessName}, your trusted used car dealer in ${siteSettings.cityStateZip}. ${siteSettings.tagline}. Family-owned and committed to quality.`,
+  path:        '/about',
+}))
 
 // Split blurb by double newlines (or single) into paragraphs
 const blurbParagraphs = computed(() => {

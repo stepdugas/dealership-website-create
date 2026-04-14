@@ -40,6 +40,14 @@
 <script setup>
 import { ref } from 'vue'
 import PageLayout from '../components/layout/PageLayout.vue'
+import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
+
+usePageMeta(() => ({
+  title:       'Frequently Asked Questions',
+  description: `Answers to common questions about buying, financing, and servicing vehicles at ${siteSettings.businessName} in ${siteSettings.cityStateZip}.`,
+  path:        '/faq',
+}))
 
 const open = ref(null)
 

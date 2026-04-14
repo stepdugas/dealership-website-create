@@ -129,6 +129,14 @@
 <script setup>
 import { ref } from 'vue'
 import PageLayout from '../components/layout/PageLayout.vue'
+import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
+
+usePageMeta(() => ({
+  title:       'Schedule Service',
+  description: `Book your next vehicle service appointment online at ${siteSettings.businessName} in ${siteSettings.cityStateZip}. Oil changes, inspections, and more. Quick and easy scheduling.`,
+  path:        '/schedule-service',
+}))
 
 const form = ref({
   name: '', email: '', phone: '', serviceType: '',

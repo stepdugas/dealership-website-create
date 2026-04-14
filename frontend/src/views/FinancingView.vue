@@ -150,6 +150,14 @@
 <script setup>
 import { ref, computed } from 'vue'
 import PageLayout from '../components/layout/PageLayout.vue'
+import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
+
+usePageMeta(() => ({
+  title:       'Auto Financing',
+  description: `Get pre-approved for auto financing at ${siteSettings.businessName} in ${siteSettings.cityStateZip}. We work with all credit types — good, bad, or no credit. Apply online today.`,
+  path:        '/financing',
+}))
 
 const calc = ref({ price: 25000, down: 3000, rate: 6.9, term: 60 })
 

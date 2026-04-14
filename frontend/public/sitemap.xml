@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SITEMAP — set VITE_SITE_URL in Netlify env vars (no trailing slash)
+  e.g. VITE_SITE_URL=https://yourdomain.com
+  Then do a find-replace on [SITE_URL] in this file with your production domain.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ── Business landing page ── -->
+  <url>
+    <loc>[SITE_URL]/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ── Demo dealership site ── -->
+  <url>
+    <loc>[SITE_URL]/demo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>[SITE_URL]/inventory</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>[SITE_URL]/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>[SITE_URL]/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ── Free tools ── -->
+  <url>
+    <loc>[SITE_URL]/vin-decoder</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── Programmatic SEO: 50 city pages ── -->
+  <url><loc>[SITE_URL]/car-dealership-websites-pittsburgh-pa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-new-york-ny</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-los-angeles-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-chicago-il</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-houston-tx</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-phoenix-az</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-philadelphia-pa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-san-antonio-tx</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-san-diego-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-dallas-tx</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-san-jose-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-austin-tx</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-jacksonville-fl</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-fort-worth-tx</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-columbus-oh</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-indianapolis-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-san-francisco-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-seattle-wa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-denver-co</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-nashville-tn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-oklahoma-city-ok</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-el-paso-tx</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-washington-dc</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-boston-ma</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-memphis-tn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-las-vegas-nv</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-louisville-ky</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-baltimore-md</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-milwaukee-wi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-albuquerque-nm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-tucson-az</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-fresno-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-sacramento-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-mesa-az</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-kansas-city-mo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-atlanta-ga</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-omaha-ne</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-colorado-springs-co</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-raleigh-nc</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-long-beach-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-virginia-beach-va</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-minneapolis-mn</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-tampa-fl</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-new-orleans-la</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-arlington-tx</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-bakersfield-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-honolulu-hi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-anaheim-ca</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-aurora-co</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>[SITE_URL]/car-dealership-websites-wichita-ks</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+</urlset>

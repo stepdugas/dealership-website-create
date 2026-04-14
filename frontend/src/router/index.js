@@ -6,13 +6,30 @@ import { createRouter, createWebHistory } from 'vue-router'
  * Optional scaffold pages are included but only render placeholder content.
  */
 const routes = [
-  // ── Public pages ────────────────────────────────────────────────────
+  // ── Landing page (Stephanie's business homepage) ────────────────────
   {
     path: '/',
-    name: 'Home',
-    component: () => import('../views/HomeView.vue'),
-    meta: { title: 'Home' },
+    name: 'Landing',
+    component: () => import('../views/LandingPageView.vue'),
+    meta: { title: 'Custom Car Dealership Websites' },
   },
+  // ── Demo dealership site (accessible via "View Demo" link) ──────────
+  {
+    path: '/demo',
+    name: 'DemoHome',
+    component: () => import('../views/HomeView.vue'),
+    meta: { title: 'Demo Dealership Website' },
+  },
+
+  // ── Programmatic SEO city pages ──────────────────────────────────────
+  {
+    path: '/car-dealership-websites-:citySlug',
+    name: 'CityPage',
+    component: () => import('../views/CityPageView.vue'),
+    meta: { title: 'Car Dealership Websites' },
+  },
+
+  // ── Public pages ────────────────────────────────────────────────────
   {
     path: '/inventory',
     name: 'Inventory',
@@ -71,6 +88,12 @@ const routes = [
     name: 'ScheduleService',
     component: () => import('../views/ScheduleServiceView.vue'),
     meta: { title: 'Schedule Service' },
+  },
+  {
+    path: '/vin-decoder',
+    name: 'VinDecoder',
+    component: () => import('../views/VinDecoderView.vue'),
+    meta: { title: 'Free VIN Decoder' },
   },
 
   // ── Admin panel ──────────────────────────────────────────────────────
@@ -154,11 +177,8 @@ const router = createRouter({
 
 // ── Navigation guard: protect admin routes ──────────────────────────────
 router.beforeEach((to, from, next) => {
-  // Update document title
-  const { DEALERSHIP_NAME } = /* will be tree-shaken */ { DEALERSHIP_NAME: '' }
-  if (to.meta.title) {
-    document.title = to.meta.title
-  }
+  // Set a quick fallback title; individual views override via usePageMeta
+  if (to.meta.title) document.title = to.meta.title
 
   // Demo site — admin is open for prospective clients to explore
 

@@ -9,7 +9,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-4xl font-extrabold text-white" data-aos="fade-up">Meet the Team</h1>
         <p class="text-gray-400 mt-2" data-aos="fade-up" data-aos-delay="100">
-          The friendly faces behind {{ DEALERSHIP_NAME }}.
+          The friendly faces behind {{ siteSettings.businessName }}.
         </p>
       </div>
     </div>
@@ -122,7 +122,15 @@
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import PageLayout from '../components/layout/PageLayout.vue'
-import { DEALERSHIP_NAME, API_BASE_URL } from '../config'
+import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
+import { API_BASE_URL } from '../config'
+
+usePageMeta(() => ({
+  title:       'Meet the Team',
+  description: `Meet the experienced team at ${siteSettings.businessName} in ${siteSettings.cityStateZip}. Our staff is dedicated to helping you find the right vehicle at the right price.`,
+  path:        '/staff',
+}))
 
 const staff   = ref([])
 const loading = ref(true)

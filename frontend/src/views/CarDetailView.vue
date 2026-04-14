@@ -260,12 +260,33 @@ import { useRoute, RouterLink } from 'vue-router'
 import PageLayout from '../components/layout/PageLayout.vue'
 import { getCar, submitContact } from '../api'
 import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
 
 const route  = useRoute()
 const car    = ref(null)
 const loading = ref(true)
 const error  = ref(false)
 const isAdmin = ref(false)
+
+usePageMeta(() => {
+  if (!car.value) {
+    return { title: 'Vehicle Details', path: `/inventory/${route.params.id}` }
+  }
+  const c = car.value
+  const label = [c.year, c.make, c.model, c.trim].filter(Boolean).join(' ')
+  const miles = c.mileage ? ` — ${Number(c.mileage).toLocaleString()} miles` : ''
+  const price = c.price
+    ? ` — ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(c.price)}`
+    : ''
+  const primaryImage = c.images?.find((i) => i.isPrimary)?.imageUrl ?? c.images?.[0]?.imageUrl
+  return {
+    title:       label,
+    description: `${label} for sale at ${siteSettings.businessName} in ${siteSettings.cityStateZip}${miles}${price}. ${c.description ? c.description.slice(0, 100) + '…' : 'Contact us for more info.'}`,
+    ogType:      'website',
+    ogImage:     primaryImage,
+    path:        `/inventory/${c.id}`,
+  }
+})
 
 const activeIdx = ref(0)
 

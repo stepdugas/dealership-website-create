@@ -215,6 +215,13 @@ import { ref, computed } from 'vue'
 import PageLayout from '../components/layout/PageLayout.vue'
 import { submitContact } from '../api'
 import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
+
+usePageMeta(() => ({
+  title:       'Contact Us',
+  description: `Get in touch with ${siteSettings.businessName} in ${siteSettings.cityStateZip}. Call ${siteSettings.phone}, email us, or send a message online. We respond quickly.`,
+  path:        '/contact',
+}))
 
 const form = ref({
   firstName: '', lastName: '', email: '', phone: '', subject: '', message: '',

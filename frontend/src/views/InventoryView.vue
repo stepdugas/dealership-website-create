@@ -34,20 +34,26 @@
         </div>
       </div>
 
-      <!-- Error state -->
-      <div v-else-if="error" class="text-center py-24 text-gray-500">
-        <p class="text-lg">Failed to load inventory. Please try again later.</p>
-        <button class="btn-primary mt-6" @click="fetchInventory">Retry</button>
-      </div>
-
-      <!-- Empty state -->
-      <div v-else-if="cars.length === 0" class="text-center py-24 text-gray-500">
+      <!-- Empty state (only when filters are active and nothing matches) -->
+      <div v-else-if="!loading && cars.length === 0" class="text-center py-24 text-gray-500">
         <p class="text-lg font-medium">No vehicles matched your filters.</p>
         <p class="mt-2 text-sm">Try adjusting or clearing the filters above.</p>
       </div>
 
+      <!-- Demo notice banner -->
+      <div v-if="isDemo && !loading" class="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800">
+        <svg class="w-5 h-5 shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 110 20A10 10 0 0112 2z"/>
+        </svg>
+        <span>
+          <strong>These are sample listings</strong> — shown so the site always looks its best.
+          Real inventory will appear here once vehicles are added.
+        </span>
+      </div>
+
       <!-- Car grid -->
-      <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div v-if="!loading && cars.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div v-for="(car, i) in cars" :key="car.id" class="relative group" data-aos="fade-up" :data-aos-delay="(i % 3) * 80">
           <CarCard :car="car" />
           <!-- Edit button for admins -->
@@ -107,10 +113,20 @@ import FilterBar  from '../components/inventory/FilterBar.vue'
 import CarCard    from '../components/inventory/CarCard.vue'
 import EditCarModal from '../components/EditCarModal.vue'
 import { getInventory } from '../api'
+import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
+import { demoInventory } from '../data/demoInventory'
+
+usePageMeta(() => ({
+  title:       'Browse Inventory',
+  description: `Shop the full inventory at ${siteSettings.businessName} in ${siteSettings.cityStateZip}. Filter by make, model, year, and price. Quality used cars, trucks, and SUVs.`,
+  path:        '/inventory',
+}))
 
 const cars       = ref([])
 const loading    = ref(true)
 const error      = ref(false)
+const isDemo     = ref(false)
 const total      = ref(null)
 const page       = ref(0)
 const totalPages = ref(1)
@@ -123,9 +139,17 @@ const selectedCar = ref(null)
 
 const hasActiveFilters = computed(() => Object.keys(filters.value).length > 0)
 
+function useDemoFallback() {
+  cars.value       = demoInventory
+  total.value      = demoInventory.length
+  totalPages.value = 1
+  isDemo.value     = true
+}
+
 async function fetchInventory() {
   loading.value = true
   error.value   = false
+  isDemo.value  = false
   try {
     const res = await getInventory({ ...filters.value, page: page.value, size: PAGE_SIZE })
     const data = res.data
@@ -140,8 +164,14 @@ async function fetchInventory() {
       total.value      = data.length
       totalPages.value = 1
     }
+
+    // If the backend returned nothing and no filters are active, show demo cars
+    if (cars.value.length === 0 && !hasActiveFilters.value) {
+      useDemoFallback()
+    }
   } catch {
-    error.value = true
+    // Backend unavailable — show demo cars instead of an error screen
+    useDemoFallback()
   } finally {
     loading.value = false
   }

@@ -32,4 +32,12 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import PageLayout from '../components/layout/PageLayout.vue'
+import { siteSettings } from '../composables/useSiteSettings'
+import { usePageMeta }  from '../composables/usePageMeta'
+
+usePageMeta(() => ({
+  title:       'Sell Your Car',
+  description: `Get a fair cash offer for your vehicle at ${siteSettings.businessName} in ${siteSettings.cityStateZip}. We buy all makes and models — no obligation, fast and hassle-free.`,
+  path:        '/sell-your-car',
+}))
 </script>

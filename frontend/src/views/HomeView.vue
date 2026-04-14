@@ -21,7 +21,14 @@ import WhyUsSection        from '../components/home/WhyUsSection.vue'
 import TestimonialsSection from '../components/home/TestimonialsSection.vue'
 import HoursSection        from '../components/home/HoursSection.vue'
 import { siteSettings }    from '../composables/useSiteSettings'
+import { usePageMeta }     from '../composables/usePageMeta'
 import { getReviews }      from '../api'
+
+usePageMeta(() => ({
+  title:       `Quality Used Cars in ${siteSettings.cityStateZip}`,
+  description: `${siteSettings.businessName} in ${siteSettings.cityStateZip} — browse quality used cars, trucks, and SUVs. ${siteSettings.tagline}. Call us at ${siteSettings.phone}.`,
+  path:        '/',
+}))
 
 const reviews = ref([])
 

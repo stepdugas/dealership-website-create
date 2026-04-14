@@ -136,6 +136,7 @@ const footerLinks = computed(() => {
   if (siteSettings.showStaff)           links.push({ label: 'Meet the Staff',  to: '/staff' })
   if (siteSettings.showScheduleService) links.push({ label: 'Schedule Service',to: '/schedule-service' })
   links.push({ label: 'Contact', to: '/contact' })
+  links.push({ label: 'Free VIN Decoder', to: '/vin-decoder' })
   return links
 })
 </script>

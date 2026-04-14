@@ -6,10 +6,8 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import { onMounted } from 'vue'
-import { fetchSiteSettings, siteSettings } from './composables/useSiteSettings'
+import { fetchSiteSettings } from './composables/useSiteSettings'
 
-onMounted(async () => {
-  await fetchSiteSettings()
-  document.title = siteSettings.businessName
-})
+// Fetch backend settings on app load; individual views handle their own meta tags.
+onMounted(() => { fetchSiteSettings() })
 </script>
