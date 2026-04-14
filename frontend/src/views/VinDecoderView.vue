@@ -64,7 +64,7 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">
 
       <!-- Ghost marketing CTA banner -->
-      <div class="rounded-2xl border border-primary-500/30 bg-primary-900/20 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+      <div class="rounded-2xl border border-white/10 bg-dark-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5">
         <div class="flex-shrink-0 bg-primary-600/20 rounded-xl p-3">
           <svg class="w-7 h-7 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
