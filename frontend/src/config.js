@@ -39,7 +39,7 @@ export const PRIMARY_COLOR = '#3b82f6'
 
 // Public site URL — used for canonical links, OG tags, and sitemap
 // Set VITE_SITE_URL in Netlify env vars (no trailing slash)
-export const SITE_URL = import.meta.env.VITE_SITE_URL || '[SITE_URL]'
+export const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://custom-dealership-website.netlify.app'
 
 // Backend API base URL — update for production
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'

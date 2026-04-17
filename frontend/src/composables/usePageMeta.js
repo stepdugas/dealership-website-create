@@ -67,7 +67,7 @@ export function usePageMeta(getOptions) {
       noindex = false,
     } = opts
 
-    const name    = siteSettings.businessName || 'Dealership'
+    const name    = siteSettings.businessName || 'Custom Dealership Websites'
     const fullTitle = title ? `${title} | ${name}` : name
 
     // ── <title> ──────────────────────────────────────────────────────────────

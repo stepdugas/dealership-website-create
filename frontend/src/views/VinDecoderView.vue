@@ -170,7 +170,7 @@ import { usePageMeta }  from '../composables/usePageMeta'
 
 usePageMeta(() => ({
   title:       'Free VIN Decoder — Full Vehicle Report',
-  description: `Decode any 17-character VIN instantly and get a full window-sticker report: make, model, engine, safety features, and manufacturing details. Free, no sign-up required. Powered by ${siteSettings.businessName}.`,
+  description: 'Decode any 17-character VIN instantly and get a full window-sticker report: make, model, engine, safety features, and manufacturing details. Free, no sign-up required.',
   path:        '/vin-decoder',
 }))
 
