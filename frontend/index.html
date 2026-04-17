@@ -34,9 +34,17 @@
       <input type="email" name="email" />
       <input type="text"  name="dealership" />
       <input type="tel"   name="phone" />
+      <input type="text"  name="planPreference" />
       <input type="text"  name="contactPreference" />
       <textarea           name="message"></textarea>
       <input type="text"  name="city" />
+    </form>
+
+    <!-- Netlify form detection: quick question chat widget -->
+    <form name="quick-question" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text"  name="name" />
+      <input type="email" name="email" />
+      <textarea           name="question"></textarea>
     </form>
 
     <!-- Hidden form so Netlify detects it at build time -->

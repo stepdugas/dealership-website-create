@@ -236,7 +236,7 @@ import { usePageMeta } from '../composables/usePageMeta'
 import { cityPages, getCityBySlug } from '../data/cityPages'
 
 const route = useRoute()
-const brand = import.meta.env.VITE_BUSINESS_BRAND || 'DealerSites Pro'
+const brand = import.meta.env.VITE_BUSINESS_BRAND || 'Car Dealership Website Builder'
 
 const city = computed(() => getCityBySlug(route.params.citySlug))
 

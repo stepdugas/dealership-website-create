@@ -25,10 +25,16 @@
         <h1 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
           Let's get your dealership online
         </h1>
-        <p class="text-gray-400 mb-10">
-          Starting at <strong class="text-white">$1,000</strong> one-time setup +
-          <strong class="text-white">$50/month</strong> to host. Live in 2 weeks.
-        </p>
+        <div class="flex flex-col sm:flex-row gap-3 mb-10">
+          <div class="flex-1 rounded-xl border border-white/10 bg-dark-800 px-4 py-3 text-sm">
+            <p class="text-white font-semibold">Plan A</p>
+            <p class="text-gray-400 mt-0.5">$1,000 setup + $50/mo</p>
+          </div>
+          <div class="flex-1 rounded-xl border border-primary-500/50 bg-dark-800 px-4 py-3 text-sm">
+            <p class="text-primary-400 font-semibold">Plan B</p>
+            <p class="text-gray-400 mt-0.5">$99/mo, no upfront cost</p>
+          </div>
+        </div>
 
         <ol class="space-y-8">
           <li v-for="(step, i) in steps" :key="i" class="flex gap-4">
@@ -44,7 +50,7 @@
 
         <div class="mt-10 rounded-xl border border-white/10 bg-dark-800 p-5 text-sm text-gray-400">
           <p><strong class="text-white">Questions before filling out the form?</strong></p>
-          <p class="mt-1">You can also reach me directly — just reply to any email or shoot me a message and I'll get back to you fast.</p>
+          <p class="mt-1">Email me directly at <a href="mailto:stepdugas@gmail.com" class="text-primary-400 hover:text-primary-300 transition-colors">stepdugas@gmail.com</a> and I'll get back to you fast.</p>
         </div>
       </div>
 
@@ -134,6 +140,36 @@
           </div>
 
           <div>
+            <label class="block text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1.5">Which plan are you leaning toward?</label>
+            <div class="flex gap-3">
+              <label
+                class="flex-1 flex flex-col items-center justify-center cursor-pointer rounded-xl border px-3 py-3 text-center transition-colors"
+                :class="form.planPreference === 'Plan A' ? 'border-primary-500 bg-primary-600/20' : 'border-white/10 hover:border-white/25'"
+              >
+                <input type="radio" v-model="form.planPreference" name="planPreference" value="Plan A" class="sr-only" />
+                <span class="text-xs font-semibold" :class="form.planPreference === 'Plan A' ? 'text-primary-400' : 'text-white'">Plan A</span>
+                <span class="text-gray-500 text-xs mt-0.5">$1,000 + $50/mo</span>
+              </label>
+              <label
+                class="flex-1 flex flex-col items-center justify-center cursor-pointer rounded-xl border px-3 py-3 text-center transition-colors"
+                :class="form.planPreference === 'Plan B' ? 'border-primary-500 bg-primary-600/20' : 'border-white/10 hover:border-white/25'"
+              >
+                <input type="radio" v-model="form.planPreference" name="planPreference" value="Plan B" class="sr-only" />
+                <span class="text-xs font-semibold" :class="form.planPreference === 'Plan B' ? 'text-primary-400' : 'text-white'">Plan B</span>
+                <span class="text-gray-500 text-xs mt-0.5">$99/mo</span>
+              </label>
+              <label
+                class="flex-1 flex flex-col items-center justify-center cursor-pointer rounded-xl border px-3 py-3 text-center transition-colors"
+                :class="form.planPreference === 'Not sure' ? 'border-primary-500 bg-primary-600/20' : 'border-white/10 hover:border-white/25'"
+              >
+                <input type="radio" v-model="form.planPreference" name="planPreference" value="Not sure" class="sr-only" />
+                <span class="text-xs font-semibold" :class="form.planPreference === 'Not sure' ? 'text-primary-400' : 'text-white'">Not sure</span>
+                <span class="text-gray-500 text-xs mt-0.5">Help me decide</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
             <label class="block text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1.5">Best Way to Reach You</label>
             <div class="flex gap-3">
               <label v-for="option in ['Email', 'Text', 'Call']" :key="option"
@@ -189,7 +225,7 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { usePageMeta } from '../composables/usePageMeta'
 
-const brand = import.meta.env.VITE_BUSINESS_BRAND || 'DealerSites Pro'
+const brand = import.meta.env.VITE_BUSINESS_BRAND || 'Car Dealership Website Builder'
 
 usePageMeta(() => ({
   title:       'Start the Conversation — Get Your Dealership Website Built',
@@ -207,7 +243,7 @@ const steps = [
 ]
 
 // ── Form ──────────────────────────────────────────────────────────────────────
-const form = ref({ name: '', email: '', dealership: '', phone: '', contactPreference: '', message: '' })
+const form = ref({ name: '', email: '', dealership: '', phone: '', planPreference: '', contactPreference: '', message: '' })
 const submitting = ref(false)
 const submitted  = ref(false)
 const formError  = ref('')
@@ -222,6 +258,7 @@ async function submitForm() {
       email:              form.value.email,
       dealership:         form.value.dealership,
       phone:              form.value.phone,
+      planPreference:     form.value.planPreference,
       contactPreference:  form.value.contactPreference,
       message:            form.value.message,
     })
