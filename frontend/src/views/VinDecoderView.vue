@@ -385,7 +385,7 @@ async function decode() {
     }
 
     // Generate QR code pointing to this result URL
-    const resultUrl = `https://custom-dealership-website.netlify.app/vin-decoder?vin=${vin}`
+    const resultUrl = `https://cardealershipswebsitebuilder.com/vin-decoder?vin=${vin}`
     qrDataUrl.value = await QRCode.toDataURL(resultUrl, {
       width:  200,
       margin: 1,

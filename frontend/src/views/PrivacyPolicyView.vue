@@ -9,8 +9,8 @@
         <p class="text-sm leading-relaxed">
           This website is operated by Custom Dealership Websites, a web design service that builds
           professional websites for independent car dealerships. Our site is located at
-          <a href="https://custom-dealership-website.netlify.app" class="text-primary-400 hover:text-primary-300">
-            custom-dealership-website.netlify.app
+          <a href="https://cardealershipswebsitebuilder.com" class="text-primary-400 hover:text-primary-300">
+            cardealershipswebsitebuilder.com
           </a>.
         </p>
       </section>

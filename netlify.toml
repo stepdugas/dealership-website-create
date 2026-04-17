@@ -2,6 +2,14 @@
   command = "cd frontend && npm install && npm run build"
   publish = "frontend/dist"
 
+# Redirect old Netlify subdomain to the real domain
+[[redirects]]
+  from   = "https://custom-dealership-website.netlify.app/*"
+  to     = "https://cardealershipswebsitebuilder.com/:splat"
+  status = 301
+  force  = true
+
+# SPA fallback — must come after the domain redirect
 [[redirects]]
   from = "/*"
   to = "/index.html"
