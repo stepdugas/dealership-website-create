@@ -58,13 +58,70 @@
       <div class="bg-dark-800 rounded-2xl border border-white/10 p-8">
 
         <!-- Success state -->
-        <div v-if="submitted" class="text-center py-8">
-          <svg class="w-14 h-14 text-emerald-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <p class="text-white font-bold text-xl">You're on my radar!</p>
-          <p class="text-gray-400 text-sm mt-2">I'll reach out within one business day. Talk soon.</p>
-          <RouterLink to="/" class="mt-6 inline-block text-primary-400 text-sm hover:text-primary-300 transition-colors">
+        <div v-if="submitted" class="py-6">
+          <div class="text-center mb-6">
+            <svg class="w-12 h-12 text-emerald-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <p class="text-white font-bold text-xl">You're on my radar!</p>
+            <p class="text-gray-400 text-sm mt-2">I'll reach out within one business day. Talk soon.</p>
+          </div>
+
+          <!-- Payment CTA -->
+          <div class="rounded-xl border border-white/10 bg-dark-900 p-5 text-center">
+            <p class="text-white font-semibold text-sm mb-1">Want to lock in your spot now?</p>
+            <p class="text-gray-400 text-xs mb-4">Pay securely via Stripe — no obligation until we've talked and you're ready.</p>
+
+            <!-- Plan A selected or not sure -->
+            <template v-if="form.planPreference !== 'Plan B'">
+              <a
+                href="https://buy.stripe.com/5kQ00jeMV94Xc0F32Tfw403"
+                target="_blank"
+                rel="noopener"
+                class="block w-full btn-secondary py-3 text-sm font-semibold text-center mb-2"
+              >
+                Pay Plan A Setup — $1,000
+              </a>
+              <p class="text-gray-600 text-xs">$50/month hosting starts after your site goes live</p>
+            </template>
+
+            <!-- Plan B selected -->
+            <template v-if="form.planPreference === 'Plan B'">
+              <a
+                href="https://buy.stripe.com/7sYeVd0W52Gz1m19rhfw401"
+                target="_blank"
+                rel="noopener"
+                class="block w-full btn-primary py-3 text-sm font-semibold text-center mb-2"
+              >
+                Start Plan B — $99/month
+              </a>
+              <p class="text-gray-600 text-xs">12-month minimum · cancel after 12 months</p>
+            </template>
+
+            <!-- Not sure -->
+            <template v-if="form.planPreference === 'Not sure' || !form.planPreference">
+              <div class="flex flex-col gap-2 mt-2">
+                <a
+                  href="https://buy.stripe.com/5kQ00jeMV94Xc0F32Tfw403"
+                  target="_blank"
+                  rel="noopener"
+                  class="block w-full btn-secondary py-2.5 text-xs font-semibold text-center"
+                >
+                  Plan A — $1,000 setup + $50/mo
+                </a>
+                <a
+                  href="https://buy.stripe.com/7sYeVd0W52Gz1m19rhfw401"
+                  target="_blank"
+                  rel="noopener"
+                  class="block w-full btn-primary py-2.5 text-xs font-semibold text-center"
+                >
+                  Plan B — $99/month
+                </a>
+              </div>
+            </template>
+          </div>
+
+          <RouterLink to="/" class="mt-5 inline-block text-primary-400 text-sm hover:text-primary-300 transition-colors">
             ← Back to home
           </RouterLink>
         </div>
