@@ -10,7 +10,7 @@
 export const DEALERSHIP_NAME   = 'Your Dealership Name'
 export const TAGLINE           = 'Your Tagline Here'
 export const PHONE             = '(555) 555-5555'
-export const EMAIL             = 'contact@yourdealership.com'
+export const EMAIL             = 'stepdugas@gmail.com'
 export const ADDRESS           = '123 Main Street'
 export const CITY_STATE_ZIP    = 'City, State ZIP'
 export const LOGO_URL          = ''
