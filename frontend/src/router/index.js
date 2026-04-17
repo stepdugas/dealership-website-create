@@ -161,6 +161,20 @@ const routes = [
     ],
   },
 
+  // ── Legal ────────────────────────────────────────────────────────────
+  {
+    path: '/privacy',
+    name: 'PrivacyPolicy',
+    component: () => import('../views/PrivacyPolicyView.vue'),
+    meta: { title: 'Privacy Policy' },
+  },
+  {
+    path: '/terms',
+    name: 'TermsOfService',
+    component: () => import('../views/TermsOfServiceView.vue'),
+    meta: { title: 'Terms of Service' },
+  },
+
   // ── 404 catch-all ────────────────────────────────────────────────────
   {
     path: '/:pathMatch(.*)*',
